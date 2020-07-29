@@ -1,6 +1,7 @@
 defmodule Mix.Tasks.Compile.Fast64 do
 
   def run(_) do
+    System.cmd("make", ["clean"], stderr_to_stdout: true)
     {result, _error_code} = System.cmd("make", ["priv/fast64.so"], stderr_to_stdout: true)
     IO.binwrite result
     :ok
